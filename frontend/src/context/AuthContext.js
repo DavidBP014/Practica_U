@@ -24,10 +24,10 @@ export const AuthProvider = ({ children }) => {
         setAuth(null);
     };
 
-    return ( <
-        AuthContext.Provider value = {
-            { auth, login, logout } } > { children } <
-        /AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={{ auth, login, logout }}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
