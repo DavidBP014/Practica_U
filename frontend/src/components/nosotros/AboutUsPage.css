@@ -1,0 +1,55 @@
+/* AboutUsPage.css */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Puedes ajustar esto para suavizar las esquinas de la imagen */
+}
+
+.about-content {
+    margin-left: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.about-content h2,
+.about-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Asegúrate de añadir media queries para adaptar el diseño a dispositivos móviles */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image,
+    .about-content {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}

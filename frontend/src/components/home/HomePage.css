@@ -1,0 +1,58 @@
+.home-container {
+    font-family: 'Arial', sans-serif;
+}
+
+.home-main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-container {
+    font-family: 'Arial', sans-serif;
+}
+
+.home-main {
+    text-align: center;
+    padding: 20px;
+}
+
+.home-hero img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.home-hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4; /* Por ejemplo, un fondo gris claro */
+}
+
+.home-hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.home-hero p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Agrega responsive design si es necesario */
+@media (max-width: 768px) {
+    .home-hero h1 {
+        font-size: 1.5em;
+    }
+    /* otros estilos responsivos aquí */
+}
