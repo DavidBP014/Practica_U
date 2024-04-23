@@ -4,11 +4,15 @@ const { protect } = require('./middleware/authMiddleware');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const authRoutes = require('./routes/authRoutes'); // Asegúrate de crear este archivo en la carpeta de rutas
-const jardinesRoutes = require('./routes/jardinesRoutes'); // Asegúrate de crear este archivo en la carpeta de rutas
+const jardinesRoutes = require('./routes/jardinRoutes'); // Asegúrate de crear este archivo en la carpeta de rutas
 // Importa otros archivos de rutas aquí
 
+console.log('URI:', process.env.MONGO_URI);
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
+
+require('dotenv').config();
 
 // Conectar a la base de datos
 connectDB();
