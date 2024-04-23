@@ -8,7 +8,7 @@ const callApi = async(endpoint, options = {}) => {
     };
 
     try {
-        const response = await fetch(`http://localhost:5000${endpoint}`, options);
+        const response = await fetch(`http://localhost:5001${endpoint}`, options);
         const data = await response.json();
         if (!response.ok) {
             throw new Error(data.message || 'Something went wrong');

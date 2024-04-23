@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'; // La ruta debe ser relativa al lugar donde tienes tu componente App
-import reportWebVitals from './reportWebVitals'; // Esta es una función opcional que se crea con Create React App
+import App from './App.js'; // La ruta debe ser relativa al lugar donde tienes tu componente App
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,4 +10,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-reportWebVitals();

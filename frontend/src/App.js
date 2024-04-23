@@ -1,28 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
-import HomePage from './components/home/HomePage';
-import NosotrosPage from './components/nosotros/nosotros';
-import BlogPage from './components/blog/BlogPage';
-import ContactPage from './components/contact/ContactPage';
-import LoginPage from './components/auth/LoginPage';
-import LocationPage from './components/location/locationPage';
-// Importa otros componentes de página si los tienes
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/common/Header.js';
+import Footer from './components/common/Footer.js';
+import HomePage from './components/home/HomePage.js';
+import NosotrosPage from './components/nosotros/nosotros.js';
+import BlogPage from './components/blog/BlogPage.js';
+import ContactPage from './components/contact/ContactPage.js';
+import LoginPage from './components/auth/LoginPage.js';
+import LocationPage from './components/location/locationPage.js';
 
 const App = () => (
   <Router>
     <Header />
     <main>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/nosotros" component={NosotrosPage} />
-        <Route path="/blog" component={BlogPage} />
-        <Route path="/contacto" component={ContactPage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/location" component={LocationPage} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/nosotros" element={<NosotrosPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/location" element={<LocationPage />} />
         {/* Asegúrate de incluir todas las rutas que necesitas aquí */}
-      </Switch>
+      </Routes>
     </main>
     <Footer />
   </Router>

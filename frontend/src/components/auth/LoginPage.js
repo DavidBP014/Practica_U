@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import callApi from '../utils/api';
+import { useNavigate } from 'react-router-dom';
+import callApi from '../utils/api.js';
 
 const LoginPage = () => {
     const [credentials, setCredentials] = useState({ name: '', email: '', familyType: '' });
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -16,22 +16,24 @@ const LoginPage = () => {
             // Intenta iniciar sesión
             const data = await callApi('/auth/login', {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/json' }, // Asegúrate de establecer el tipo de contenido
                 body: JSON.stringify(credentials),
             });
             // Si el inicio de sesión es exitoso, redirecciona a la página de ubicación
-            history.push('./locationPage.js');
+            navigate('/location'); // Usar la ruta de 'Routes' no el nombre del archivo
         } catch (error) {
             // Si el usuario no está registrado, intenta registrar
-            try {
-                const registerData = await callApi('/auth/register', {
-                    method: 'POST',
-                    body: JSON.stringify(credentials),
-                });
+            const registerData = await callApi('/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }, // Asegúrate de establecer el tipo de contenido
+                body: JSON.stringify(credentials),
+            });
+            if (registerData) {
                 // Si el registro es exitoso, redirecciona a la página de ubicación
-                history.push('./locationPage.js');
-            } catch (registerError) {
+                navigate('/location'); // Usar la ruta de 'Routes' no el nombre del archivo
+            } else {
                 // Manejar errores de registro, como mostrar un mensaje al usuario
-                console.error('Registration failed:', registerError);
+                console.error('Registration failed:', error);
             }
         }
     };
