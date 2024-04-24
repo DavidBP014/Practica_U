@@ -15,7 +15,6 @@ const HomePage = () => {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
                     <Link to="/contacto" className="btn btn-primary">Contáctanos</Link>
                 </section>
-                {/* Si tienes más imágenes para mostrar, puedes hacer algo similar */}
             </main>
         </div>
     );

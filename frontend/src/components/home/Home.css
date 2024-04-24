@@ -1,31 +1,27 @@
 .home-container {
     font-family: 'Arial', sans-serif;
-}
-
-.home-main {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.home-container {
-    font-family: 'Arial', sans-serif;
-}
-
 .home-main {
-    text-align: center;
-    padding: 20px;
-}
-
-.home-hero img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* Asegura alineación vertical */
+    justify-content: space-around; /* Asegura espacio alrededor de los elementos */
+    padding: 50px 0;
 }
 
 .home-hero {
-    text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4; /* Por ejemplo, un fondo gris claro */
+    width: 80%; /* Ajusta el ancho al 70% */
+    text-align: left;
+    padding: 0 60px; /* Espacio horizontal */
+}
+
+.home-hero img {
+    width: 100%; /* La imagen ocupa el 100% del contenedor .home-hero */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .home-hero h1 {
@@ -45,14 +41,33 @@
     padding: 10px 20px;
     text-decoration: none;
     display: inline-block;
-    margin: 5px;
+    margin-bottom: 20px; /* Espacio debajo del botón */
     cursor: pointer;
+    text-align: left;
 }
 
-/* Agrega responsive design si es necesario */
+/* Responsive design */
 @media (max-width: 768px) {
+    .home-main {
+        flex-direction: column; /* Apila elementos verticalmente */
+        padding: 20px;
+    }
+
+    .home-hero {
+        width: 100%; /* El contenido ocupa todo el ancho */
+    }
+
+    .home-hero img {
+        width: auto; /* La imagen retoma su tamaño automático */
+        margin-bottom: 20px;
+    }
+
     .home-hero h1 {
         font-size: 1.5em;
     }
-    /* otros estilos responsivos aquí */
+
+    .btn-primary {
+        display: block; /* Asegura que el botón se muestra en su propia línea */
+        margin-top: 10px; /* Espacio arriba del botón */
+    }
 }
