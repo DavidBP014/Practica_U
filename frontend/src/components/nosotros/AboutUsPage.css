@@ -1,55 +1,73 @@
 /* AboutUsPage.css */
 .about-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Alinea los elementos al principio del contenedor */
     justify-content: center;
-    padding: 20px;
-    max-width: 1200px;
+    padding: 75px 30px; /* Incrementa el padding */
+    max-width: 1800px; /* Aumenta el max-width para permitir un diseño más grande */
     margin: 0 auto;
+    gap: 30px; /* Incrementa el espacio entre la imagen y el contenido */
+}
+
+.about-image {
+    flex: 0 0 45%; /* Ajusta la base del flex al tamaño deseado para la imagen */
 }
 
 .about-image img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 8px; /* Puedes ajustar esto para suavizar las esquinas de la imagen */
+    border-radius: 12px; /* Suaviza un poco más las esquinas */
 }
 
 .about-content {
-    margin-left: 20px; /* Espacio entre la imagen y el texto */
+    flex: 0 0 55%; /* Ajusta la base del flex al tamaño deseado para el contenido */
+    padding-top: 30px; /* Incrementa el padding superior */
 }
 
 .about-content h2,
 .about-content h3 {
+    font-size: 1.3em; /* Vuelve al tamaño de fuente original */
     color: #333;
     margin-bottom: 10px;
 }
 
 .about-content p {
+    font-size: 1.1em; /* Vuelve al tamaño de fuente original */
     color: #555;
     line-height: 1.6;
 }
 
 .btn-primary {
+    padding: 10px 20px; /* Vuelve al padding original */
+    font-size: 1em; /* Vuelve al tamaño de fuente original */
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
     text-decoration: none;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 20px; /* Vuelve al margen superior original */
     cursor: pointer;
 }
 
-/* Asegúrate de añadir media queries para adaptar el diseño a dispositivos móviles */
+/* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
     .about-section {
         flex-direction: column;
         text-align: center;
+        padding: 20px;
     }
     .about-image,
     .about-content {
         width: 100%;
-        margin-left: 0;
         margin-bottom: 20px;
+    }
+    .about-content {
+        padding-top: 0;
+    }
+    .about-content h2,
+    .about-content h3,
+    .about-content p,
+    .btn-primary {
+        font-size: 1em; /* Asegura que el tamaño de fuente no se aumente en dispositivos móviles */
     }
 }
