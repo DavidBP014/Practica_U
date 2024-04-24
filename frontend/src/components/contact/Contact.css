@@ -29,15 +29,16 @@
     margin-top: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    background-color:#948e89; /* Café clarito para los inputs */
 }
 
 .contact-form button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #948e89; /* Café clarito para el botón */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px; /* Más redondeado para el botón */
     cursor: pointer;
 }
 

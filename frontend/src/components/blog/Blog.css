@@ -1,7 +1,7 @@
 /* BlogPage.css */
 .blog-section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr; /* Dos columnas para imagen y texto */
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -9,40 +9,56 @@
 }
 
 .blog-entry {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Proporción de imagen y texto */
+    gap: 20px;
+    align-items: center; /* Centra el contenido verticalmente */
+    background: #948e89;
+    border: 1px solid #948e89;
     padding: 10px;
-    text-align: center;
+    border-radius: 15px; /* Bordes redondeados para la entrada */
 }
 
-.blog-entry .blog-image {
-    max-width: 100%;
+.blog-entry:nth-child(2n) { /* Para entradas pares, invertimos el orden */
+    grid-template-columns: 2fr 1fr;
+}
+
+.blog-entry img {
+    width: 100%;
     height: auto;
-    margin-bottom: 15px;
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
 }
 
-.blog-entry h3 {
-    margin-bottom: 10px;
-    color: #333;
-}
-
+.blog-entry h3,
 .blog-entry p {
-    margin-bottom: 15px;
-    color: #555;
+    margin: 0; /* Remover márgenes adicionales */
 }
 
-.btn-contact {
-    background-color: #007bff;
+.blog-entry .btn-contact {
+    grid-column: 1 / -1; /* El botón abarca ambas columnas */
+    place-self: center; /* Centra el botón horizontalmente */
+    margin-top: 20px; /* Espacio sobre el botón */
+    background-color: #948e89; /* Color del botón igual al fondo de las imágenes */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px; /* Reducimos el padding a un 80% menos */
+    font-size: 0.8em; /* Reduce el tamaño de la fuente si es necesario */
     text-decoration: none;
     cursor: pointer;
+    border-radius: 20px; /* Hace el botón más redondeado */
+    width: auto; /* Permite que el ancho sea automático y dependa del contenido interno */
+    max-width: 80%; /* Establece un ancho máximo para el botón, si es necesario reducir su tamaño */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .blog-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Una sola columna para dispositivos móviles */
+    }
+    .blog-entry {
+        grid-template-columns: 1fr; /* Ajusta a una columna para móviles */
+    }
+    .blog-entry .btn-contact {
+        grid-column: 1;
     }
 }

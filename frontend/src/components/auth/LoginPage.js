@@ -5,7 +5,7 @@ import '../auth/Login.css'
 
 const LoginPage = () => {
     const [credentials, setCredentials] = useState({ name: '', email: '', familyType: '' });
-    const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar mensajes de error
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -42,21 +42,22 @@ const LoginPage = () => {
 
     return (
         <div className="login-container">
-            <div className="login-text">
-                <p>Luego de loguearte con nosotros podrás revisar a partir de ubicación el Jardín más cercano para que te acerques y charlemos un rato.</p>
-                {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Muestra mensajes de error si los hay */}
-            </div>
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            <h1>Formulario de Login</h1>
             <form onSubmit={handleSubmit} className="login-form">
-                <input
-                    type="text"
-                    name="name"
-                    value={credentials.name}
-                    onChange={handleChange}
-                    placeholder="Introduce tu nombre"
-                    required
-                />
-                {/* Asegúrate de incluir campos para el email y el tipo de familia si son necesarios */}
-                <button type="submit">Login</button>
+                <label>
+                    INTRODUCE TU NOMBRE:
+                    <input type="text" name="name" value={credentials.name} onChange={handleChange} required />
+                </label>
+                <label>
+                    E-MAIL:
+                    <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
+                </label>
+                <label>
+                    TIPO DE FAMILIAR DEL MENOR:
+                    <input type="text" name="familyType" value={credentials.familyType} onChange={handleChange} required />
+                </label>
+                <button type="submit">LOGIN</button>
             </form>
         </div>
     );
