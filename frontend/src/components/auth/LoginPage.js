@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import callApi from '../utils/api.js';
+import callApi from '../../utils/api';
+import '../auth/Login.css'
 
 const LoginPage = () => {
     const [credentials, setCredentials] = useState({ name: '', email: '', familyType: '' });

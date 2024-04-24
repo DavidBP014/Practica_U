@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ContactPage.css';
+import '../contact/Contact.css'
 
 const ContactPage = () => {
     // Estados para cada campo del formulario

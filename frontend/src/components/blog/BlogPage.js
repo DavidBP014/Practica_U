@@ -1,8 +1,8 @@
 import React from 'react';
-import salidaImage from '../path-to-your-images-folder/salida-image.jpg';
-import dailyActivityImage from '../path-to-your-images-folder/daily-activity-image.jpg';
-import playTimeImage from '../path-to-your-images-folder/play-time-image.jpg';
-import './BlogPage.css';
+import salidaImage from '../../images/Imagen3.jpeg';
+import dailyActivityImage from '../../images/imagen2.jpeg';
+import playTimeImage from '../../images/Imagen1.jpeg';
+import '../blog/Blog.css'
 
 
 const BlogPage = () => {

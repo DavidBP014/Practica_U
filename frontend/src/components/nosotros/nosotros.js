@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// Imagina que has importado una imagen llamada 'kidsPlaying.jpg' desde tu carpeta de imágenes locales
-import kidsPlaying from '../path-to-your-images-folder/kids-playing.jpg'; 
-import './AboutUsPage.css';
+import kidsPlaying from '../../images/imagen5.jpeg'; 
+import '../nosotros/AboutUsPage.css'
 
 
 const AboutUsPage = () => {

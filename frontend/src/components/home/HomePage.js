@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import mainImage from '../path-to-your-images-folder/main-image.jpg';
-import './HomePage.css';
+import mainImage from '../../images/imagen4.jpeg';
+import '../home/Home.css'
 
 
 const HomePage = () => {

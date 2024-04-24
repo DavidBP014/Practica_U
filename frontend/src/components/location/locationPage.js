@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import callApi from '../utils/api.js';
-import { useAuth } from '../context/AuthContext';
+import callApi from '../../utils/api';
+import { useAuth } from '../../context/AuthContext';
 
 const mapStyles = {
   width: '100%',
