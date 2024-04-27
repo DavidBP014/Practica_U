@@ -1,21 +1,28 @@
 const express = require('express');
-const connectDB = require('./database');
+const { sequelize } = require('../backend/config/database'); // Asegúrate de que el path sea correcto y destructure correctamente
 const { protect } = require('./middleware/authMiddleware');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
-const authRoutes = require('./routes/authRoutes'); // Asegúrate de crear este archivo en la carpeta de rutas
-const jardinesRoutes = require('./routes/jardinRoutes'); // Asegúrate de crear este archivo en la carpeta de rutas
-// Importa otros archivos de rutas aquí
-
-console.log('URI:', process.env.MONGO_URI);
+const authRoutes = require('./routes/authRoutes');
+const jardinesRoutes = require('./routes/jardinRoutes');
+const { errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 
-require('dotenv').config();
 
-// Conectar a la base de datos
-connectDB();
+// Autenticar y sincronizar con la base de datos
+sequelize.authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+        // Iniciar el servidor solo si la conexión a la base de datos es exitosa
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 
 app.use(express.json());
 
@@ -23,8 +30,6 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
-
-const { errorHandler } = require('./middleware/errorMiddleware');
 
 // Middleware de errores, debe ser el último middleware
 app.use(errorHandler);
@@ -36,7 +41,6 @@ app.use('/api/auth', authRoutes); // Ruta para autenticación
 app.use('/api/jardines', jardinesRoutes); // Ruta para obtener la información de los jardines
 
 // Usa otras rutas aquí, asegurándote de proteger las necesarias con el middleware 'protect'
-
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

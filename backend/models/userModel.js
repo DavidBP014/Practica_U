@@ -1,7 +1,6 @@
 // backend/models/userModel.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db.config'); // Asegúrate de que el path sea correcto
-
+const { sequelize } = require('../config/database'); // Asegúrate de que el path sea correcto y destructure correctamente
 const Usuario = sequelize.define('Usuario', {
   id: {
     type: DataTypes.INTEGER,
