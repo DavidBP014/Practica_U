@@ -31,22 +31,25 @@
     margin-bottom: 10px;
 }
 
-.about-content p {
-    font-size: 1.1em; /* Vuelve al tamaño de fuente original */
-    color: #555;
-    line-height: 1.6;
+.about-content {
+    flex: 0 0 55%; /* Ajusta la base del flex al tamaño deseado para el contenido */
+    padding-top: 30px; /* Incrementa el padding superior */
+    display: flex; /* Asegura que los elementos se manejan como flex items */
+    flex-direction: column; /* Elementos en columna */
+    align-items: flex-start; /* Alinea los textos y contenidos al inicio */
 }
 
 .btn-primary {
     padding: 10px 20px; /* Vuelve al padding original */
     font-size: 1em; /* Vuelve al tamaño de fuente original */
-    background-color: #007bff;
+    background-color: #948e89; /* Café clarito para el botón */
     color: white;
     border: none;
     text-decoration: none;
     display: inline-block;
     margin-top: 20px; /* Vuelve al margen superior original */
     cursor: pointer;
+    margin-left: auto; /* Alinea el botón a la derecha */
 }
 
 /* Media queries para dispositivos móviles */
@@ -63,6 +66,10 @@
     }
     .about-content {
         padding-top: 0;
+        align-items: center; /* Centra los elementos cuando el dispositivo es móvil */
+    }
+    .btn-primary {
+        margin-left: 0; /* Asegura que el botón esté centrado en dispositivos móviles */
     }
     .about-content h2,
     .about-content h3,

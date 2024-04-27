@@ -1,64 +1,51 @@
 /* BlogPage.css */
+
 .blog-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas para imagen y texto */
-    gap: 20px;
+    display: flex; /* Cambiado a flex para facilitar la alineación de elementos en columna */
+    flex-direction: column; /* Alinea los elementos en columna */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    gap: 20px; /* Espacio entre los elementos */
 }
 
 .blog-entry {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Proporción de imagen y texto */
-    gap: 20px;
-    align-items: center; /* Centra el contenido verticalmente */
-    background: #948e89;
-    border: 1px solid #948e89;
+    align-items: flex-start; /* Alinea el contenido al inicio (izquierda) */
+    background: none;
+    border: none;
     padding: 10px;
-    border-radius: 15px; /* Bordes redondeados para la entrada */
-}
-
-.blog-entry:nth-child(2n) { /* Para entradas pares, invertimos el orden */
-    grid-template-columns: 2fr 1fr;
+    border-radius: 0;
 }
 
 .blog-entry img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px; /* Bordes redondeados para las imágenes */
+    width: 50%; /* La imagen ahora ocupa solo el 50% del ancho del contenedor */
+    height: auto; /* Altura auto para mantener proporciones */
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
 }
 
-.blog-entry h3,
+.blog-entry h3 {
+    font-size: 1.3em; /* Aumenta el tamaño de fuente en un 30% para los títulos */
+    margin: 0 0 10px 0; /* Agrega espaciado debajo del título */
+}
+
 .blog-entry p {
-    margin: 0; /* Remover márgenes adicionales */
+    font-size: 1.3em; /* Aumenta el tamaño de fuente en un 30% para los párrafos */
+    margin: 0 0 10px 0; /* Agrega espaciado debajo del párrafo */
 }
 
 .blog-entry .btn-contact {
-    grid-column: 1 / -1; /* El botón abarca ambas columnas */
-    place-self: center; /* Centra el botón horizontalmente */
-    margin-top: 20px; /* Espacio sobre el botón */
-    background-color: #948e89; /* Color del botón igual al fondo de las imágenes */
-    color: white;
-    border: none;
-    padding: 5px 10px; /* Reducimos el padding a un 80% menos */
-    font-size: 0.8em; /* Reduce el tamaño de la fuente si es necesario */
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 20px; /* Hace el botón más redondeado */
-    width: auto; /* Permite que el ancho sea automático y dependa del contenido interno */
-    max-width: 80%; /* Establece un ancho máximo para el botón, si es necesario reducir su tamaño */
+    /* Estilos existentes */
+    font-size: 1.3em; /* Opcionalmente, aumenta el tamaño del texto del botón si es necesario */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .blog-section {
-        grid-template-columns: 1fr; /* Una sola columna para dispositivos móviles */
+    /* Estilos existentes para dispositivos móviles */
+    .blog-entry img {
+        width: 100%; /* Asegura que la imagen se ajuste al contenedor en móviles */
     }
-    .blog-entry {
-        grid-template-columns: 1fr; /* Ajusta a una columna para móviles */
-    }
-    .blog-entry .btn-contact {
-        grid-column: 1;
+    .blog-entry h3,
+    .blog-entry p {
+        font-size: 1em; /* Puedes ajustar el tamaño de la fuente en móviles si se ve demasiado grande */
     }
 }
