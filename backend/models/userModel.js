@@ -1,49 +1,41 @@
 // backend/models/userModel.js
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db.config'); // Asegúrate de que el path sea correcto
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please add a name']
+const Usuario = sequelize.define('Usuario', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  nombre: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notNull: { msg: 'El nombre es obligatorio' },
+      notEmpty: { msg: 'El nombre no puede estar vacío' },
+    },
   },
   email: {
-    type: String,
-    required: [true, 'Please add an email'],
+    type: DataTypes.STRING,
+    allowNull: false,
     unique: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      'Please add a valid email'
-    ]
+    validate: {
+      isEmail: { msg: 'Por favor, introduce un email válido' },
+      notNull: { msg: 'El email es obligatorio' },
+      notEmpty: { msg: 'El email no puede estar vacío' },
+    },
   },
-  password: {
-    type: String,
-    required: [true, 'Please add a password'],
-    minlength: 6,
-    select: false // No devolver la contraseña en consultas API
+  tipo_familiar: {
+    type: DataTypes.STRING,
+    validate: {
+      notEmpty: { msg: 'El tipo de familiar no puede estar vacío' },
+    },
   },
-  role: {
-    type: String,
-    enum: ['user', 'admin'],
-    default: 'user'
-  }
 }, {
-  timestamps: true
+  sequelize,
+  modelName: 'Usuario',
+  timestamps: false, // Si no necesitas los timestamps puedes desactivarlos
 });
 
-// Método para hashear la contraseña antes de guardar el usuario
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) {
-    next();
-  }
-
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
-
-// Método para verificar la contraseña en el login
-userSchema.methods.matchPassword = async function(enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = Usuario;

@@ -1,16 +1,10 @@
-// backend/database.js
-const mongoose = require('mongoose');
+// config/db.config.js
 
-const connectDB = async() => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('MongoDB connected');
-    } catch (error) {
-        console.error('MongoDB connection error:', error.message);
-        process.exit(1);
-    }
-};
-module.exports = connectDB;
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize(process.env.DATA_JUAN, process.env.root, process.env.juanda014, {
+  host: process.env.MYSQL_HOST,
+  dialect: 'mysql',
+});
+
+module.exports = sequelize;
