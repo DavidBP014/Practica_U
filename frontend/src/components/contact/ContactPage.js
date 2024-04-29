@@ -19,8 +19,8 @@ const ContactPage = () => {
             <div className="contact-info">
                 <h2>Contacto</h2>
                 <p>La comunicación es crucial para nuestro apoyo!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                <p>E-mail: hello@reallygreatsite.com</p>
+                <p>Nuestro proyecto pedagógico está basado en el movimiento, la conciencia emocional y el aprendizaje experiencial, para atender las necesidades actuales de la educación. Respetamos los ritmos de aprendizaje de los niños, sin adelantar procesos. Entregamos a los colegios niños con pensamiento crítico, capacidad de análisis, resolución de problemas e independencia.</p>
+                <p>E-mail de contacto: Mariaantonia@gmail.com</p>
             </div>
             <form className="contact-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Nombre:</label>
